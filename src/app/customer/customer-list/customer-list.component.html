@@ -1,0 +1,15 @@
+<mat-accordion *ngIf="customers">
+  <mat-expansion-panel *ngFor="let cus of customers">
+    <mat-expansion-panel-header>
+      {{ cus.thirdParty[0].name | uppercase }} -
+      {{ cus.thirdParty[0].vat | uppercase }}
+    </mat-expansion-panel-header>
+    <mat-panel-description>
+      <mat-action-row>
+        <button type="button" mat-stroked-button color="accent">NEW QUOTE</button>
+        <button type="button" mat-stroked-button color="accent">EDIT</button>
+        <button type="button" mat-stroked-button color="warn">DELETE</button>
+      </mat-action-row>
+    </mat-panel-description>
+  </mat-expansion-panel>
+</mat-accordion>
