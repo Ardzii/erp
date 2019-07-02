@@ -1,0 +1,12 @@
+mat-nav-list {
+  padding: 0;
+}
+
+.mat-list-item {
+  font-weight: 300;
+  color: #FFFF;
+}
+
+.active {
+  text-decoration: underline;
+}

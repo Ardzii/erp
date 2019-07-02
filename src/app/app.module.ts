@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
-import { MatToolbarModule, MatExpansionModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatExpansionModule, MatButtonModule, MatListModule, MatMenuModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +14,11 @@ import { CusInfoFormComponent } from './customer/customer-detail/customer-edit/c
 import { DocRefsFormComponent } from './customer/customer-detail/customer-edit/doc-refs-form/doc-refs-form.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
+
+const appRoutes = [
+  {path: 'customers', component: CustomerListComponent},
+  {path: 'customer-detail/:id', component: CustomerDetailComponent},
+];
 
 @NgModule({
   declarations: [
@@ -29,7 +35,13 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     MatToolbarModule,
+    MatMenuModule,
+    MatListModule,
     MatExpansionModule,
     MatButtonModule,
   ],
