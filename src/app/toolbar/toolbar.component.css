@@ -2,11 +2,11 @@ mat-nav-list {
   padding: 0;
 }
 
-.mat-list-item {
+.mat-button {
   font-weight: 300;
   color: #FFFF;
 }
 
 .active {
-  text-decoration: underline;
+  font-weight: 500;
 }
