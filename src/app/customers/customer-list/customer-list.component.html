@@ -1,10 +1,12 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    Sidenav content
-  </mat-sidenav>
+<mat-progress-bar mode="query" *ngIf="isLoading"></mat-progress-bar>
 
-  <mat-sidenav-content>
-    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
+<mat-card style="margin: 1rem;" *ngIf="customers">
+  <mat-nav-list>
+    <mat-list-item
+      *ngFor="let customer of customers"
+      [routerLink]="['/customer-detail/', customer._id ]">
+      <mat-icon [ngClass]="{activeAccount: customer.active}" style="margin-right: 0.5rem;">account_box</mat-icon>
+      <span cdk-visually-hidden>{{ customer.thirdParty[0].name | uppercase }}</span>
+    </mat-list-item>
+  </mat-nav-list>
+</mat-card>

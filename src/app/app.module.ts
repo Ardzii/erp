@@ -9,6 +9,9 @@ import {
   MatListModule,
   MatMenuModule,
   MatSidenavModule,
+  MatIconModule,
+  MatCardModule,
+  MatProgressBarModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -19,10 +22,13 @@ import { CustomersComponent } from './customers/customers.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customers/customer-list/customer-details/customer-details.component';
 import { CustomerEditComponent } from './customers/customer-list/customer-edit/customer-edit.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes = [
   { path: 'customers', component: CustomerListComponent },
-  { path: 'customer-detail/:id', component: CustomerDetailsComponent }
+  { path: 'customer', component: CustomerDetailsComponent },
+  { path: 'customer-detail/:id', component: CustomerDetailsComponent },
+  { path: 'home', component: DashboardComponent },
 ];
 
 @NgModule({
@@ -32,7 +38,8 @@ const appRoutes = [
     CustomersComponent,
     CustomerListComponent,
     CustomerDetailsComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,10 @@ const appRoutes = [
     MatListModule,
     MatExpansionModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule,
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
