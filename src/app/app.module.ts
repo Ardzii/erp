@@ -27,7 +27,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const appRoutes = [
   { path: 'customers', component: CustomerListComponent },
   { path: 'customer', component: CustomerDetailsComponent },
-  { path: 'customer-detail/:id', component: CustomerDetailsComponent },
+  { path: 'customers/customer-detail/:id', component: CustomerDetailsComponent },
+  { path: 'customers/customer-edit/:id', component: CustomerEditComponent },
   { path: 'home', component: DashboardComponent },
 ];
 

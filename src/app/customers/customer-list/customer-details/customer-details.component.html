@@ -1,1 +1,18 @@
-<p>customer-details works!</p>
+<mat-progress-bar mode="query" *ngIf="isLoading"></mat-progress-bar>
+<div *ngIf="!isLoading">
+  <mat-toolbar>
+    <button mat-flat-button color="accent" style="margin-right: 0.5rem;" [routerLink]="['/customers']">BACK</button>
+    <button mat-flat-button color="primary" [routerLink]="['/customers/customer-edit', customer$._id]">EDIT</button>
+  </mat-toolbar>
+  <mat-card style="margin: 1rem;">
+    <mat-card-title>
+      {{ customer$.thirdParty[0].name | uppercase }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ customer$.thirdParty[0].vat | uppercase }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      Test
+    </mat-card-content>
+  </mat-card>
+</div>

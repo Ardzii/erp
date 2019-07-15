@@ -4,7 +4,7 @@
   <mat-nav-list>
     <mat-list-item
       *ngFor="let customer of customers"
-      [routerLink]="['/customer-detail/', customer._id ]">
+      [routerLink]="['/customers/customer-detail/', customer._id ]">
       <mat-icon [ngClass]="{activeAccount: customer.active}" style="margin-right: 0.5rem;">account_box</mat-icon>
       <span cdk-visually-hidden>{{ customer.thirdParty[0].name | uppercase }}</span>
     </mat-list-item>
