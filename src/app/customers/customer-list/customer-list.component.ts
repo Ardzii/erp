@@ -18,7 +18,6 @@ export class CustomerListComponent implements OnInit {
     this.cs.getCustomers().subscribe(
       (res: any) => {
         this.customers = res.customers;
-        console.log(this.customers);
         this.isLoading = false;
       }
     );

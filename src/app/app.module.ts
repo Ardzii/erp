@@ -11,7 +11,9 @@ import {
   MatSidenavModule,
   MatIconModule,
   MatCardModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatInputModule,
+  MatTabsModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -23,6 +25,8 @@ import { CustomerListComponent } from './customers/customer-list/customer-list.c
 import { CustomerDetailsComponent } from './customers/customer-list/customer-details/customer-details.component';
 import { CustomerEditComponent } from './customers/customer-list/customer-edit/customer-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BasicComponent } from './customers/customer-list/customer-details/basic/basic.component';
+import { DocsComponent } from './customers/customer-list/customer-details/docs/docs.component';
 
 const appRoutes = [
   { path: 'customers', component: CustomerListComponent },
@@ -40,7 +44,9 @@ const appRoutes = [
     CustomerListComponent,
     CustomerDetailsComponent,
     CustomerEditComponent,
-    DashboardComponent
+    DashboardComponent,
+    BasicComponent,
+    DocsComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,9 @@ const appRoutes = [
     MatSidenavModule,
     MatIconModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
