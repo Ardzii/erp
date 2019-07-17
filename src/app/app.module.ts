@@ -13,7 +13,8 @@ import {
   MatCardModule,
   MatProgressBarModule,
   MatInputModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTableModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -28,6 +29,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BasicComponent } from './customers/customer-list/customer-details/basic/basic.component';
 import { DocsComponent } from './customers/customer-list/customer-details/docs/docs.component';
 
+
+// APP ROUTING MODULE TO BE CREATED ************************************************* BEG
 const appRoutes = [
   { path: 'customers', component: CustomerListComponent },
   { path: 'customer', component: CustomerDetailsComponent },
@@ -35,6 +38,7 @@ const appRoutes = [
   { path: 'customers/customer-edit/:id', component: CustomerEditComponent },
   { path: 'home', component: DashboardComponent },
 ];
+// APP ROUTING MODULE TO BE CREATED ************************************************* END
 
 @NgModule({
   declarations: [
@@ -46,7 +50,7 @@ const appRoutes = [
     CustomerEditComponent,
     DashboardComponent,
     BasicComponent,
-    DocsComponent
+    DocsComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ const appRoutes = [
     MatCardModule,
     MatProgressBarModule,
     MatInputModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

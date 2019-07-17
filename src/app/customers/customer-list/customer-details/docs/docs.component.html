@@ -1,7 +1,43 @@
-<!-- <mat-accordion>
-  <mat-expansion-panel *ngFor="let doc of customer$.docRefs">
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let doc of docList">
     <mat-expansion-panel-header>
-      Test
+      <mat-panel-title>
+        {{ doc.title }}
+      </mat-panel-title>
+      <mat-panel-description *ngIf="customer$.docRefs[doc.selector].length > 0">
+          {{ customer$.docRefs[doc.selector].length }} documents available
+      </mat-panel-description>
     </mat-expansion-panel-header>
+        <div *ngIf="customer$.docRefs[doc.selector].length > 0">
+          <!-- DOC TABLE -->
+            <table mat-table [dataSource]="docSource[doc.selector]" class="mat-elevation-z8" style="width: 100%;">
+
+                <ng-container *ngFor="let col of docColumns[doc.selector]" matColumnDef="{{col}}">
+                  <th mat-header-cell *matHeaderCellDef>{{ col | uppercase }}</th>
+                  <div *ngIf="col != 'url' else url">
+                    <td mat-cell *matCellDef="let element"> {{element[col]}} </td>
+                  </div>
+                  <ng-template #url>
+                    <td mat-cell *matCellDef="let element">
+
+                      <!-- TODO: PROBABLY NEED TO FIX THE LINK... -->
+                      <a [attr.href]="element[col]"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                        View Document
+                      </a>
+
+                    </td>
+                  </ng-template>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="docColumns[doc.selector]"></tr>
+                <tr mat-row *matRowDef="let row; columns: docColumns[doc.selector];"></tr>
+              </table>
+
+        </div>
+        <div *ngIf="customer$.docRefs[doc.selector].length === 0">
+          Please upload a new document.
+        </div>
   </mat-expansion-panel>
-</mat-accordion> -->
+</mat-accordion>
