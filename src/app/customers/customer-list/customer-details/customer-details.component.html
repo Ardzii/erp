@@ -15,6 +15,7 @@
       <mat-tab-group>
         <mat-tab label="Basic Info">
           <app-basic [customer$]="customer$"></app-basic>
+          <app-customer-comments *ngIf="customer$.commentsArr.length > 0" [customer$]="customer$"></app-customer-comments>
         </mat-tab>
         <mat-tab label="Documents">
           <app-docs [customer$]="customer$"></app-docs>

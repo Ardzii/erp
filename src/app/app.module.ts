@@ -28,6 +28,8 @@ import { CustomerEditComponent } from './customers/customer-list/customer-edit/c
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BasicComponent } from './customers/customer-list/customer-details/basic/basic.component';
 import { DocsComponent } from './customers/customer-list/customer-details/docs/docs.component';
+import { ContactsComponent } from './customers/customer-list/customer-details/contacts/contacts.component';
+import { CustomerCommentsComponent } from './customers/customer-list/customer-details/customer-comments/customer-comments.component';
 
 
 // APP ROUTING MODULE TO BE CREATED ************************************************* BEG
@@ -51,6 +53,8 @@ const appRoutes = [
     DashboardComponent,
     BasicComponent,
     DocsComponent,
+    ContactsComponent,
+    CustomerCommentsComponent,
   ],
   imports: [
     BrowserModule,

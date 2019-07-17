@@ -5,12 +5,12 @@
         {{ doc.title }}
       </mat-panel-title>
       <mat-panel-description *ngIf="customer$.docRefs[doc.selector].length > 0">
-          {{ customer$.docRefs[doc.selector].length }} documents available
+          <span>{{ customer$.docRefs[doc.selector].length }}</span><mat-icon matSuffix>insert_drive_file</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
         <div *ngIf="customer$.docRefs[doc.selector].length > 0">
           <!-- DOC TABLE -->
-            <table mat-table [dataSource]="docSource[doc.selector]" class="mat-elevation-z8" style="width: 100%;">
+            <table mat-table [dataSource]="docSource[doc.selector]" class="mat-elevation-z6" style="width: 100%;">
 
                 <ng-container *ngFor="let col of docColumns[doc.selector]" matColumnDef="{{col}}">
                   <th mat-header-cell *matHeaderCellDef>{{ col | uppercase }}</th>
