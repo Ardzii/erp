@@ -1,1 +1,41 @@
-<p>contacts works!</p>
+<mat-card style="margin-bottom: 1rem;">
+  <mat-card-header>
+    <mat-card-subtitle>ITL Sales Rep.</mat-card-subtitle>
+  </mat-card-header>
+  <table mat-table [dataSource]="salesRepData" style="width: 100%;" class="mat-elevation-z6">
+
+    <ng-container matColumnDef="user_id">
+      <th mat-header-cell *matHeaderCellDef>User ID</th>
+      <td mat-cell *matCellDef="let element"> {{element.user_id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dateBegin">
+      <th mat-header-cell *matHeaderCellDef>Since</th>
+      <td mat-cell *matCellDef="let element"> {{element.dateBegin}} </td>
+    </ng-container>
+    <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef>Current</th>
+      <td mat-cell *matCellDef="let element"> {{element.active ? 'Current' : 'Past' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+        <button type="button"
+          mat-icon-button
+          matTooltip="View the Sales Rep. accounts">
+          <mat-icon>remove_red_eye</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="salesRepColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: salesRepColumns"></tr>
+  </table>
+
+</mat-card>
+<mat-card>
+    <mat-card-header>
+      <mat-card-subtitle>Company contacts</mat-card-subtitle>
+    </mat-card-header>
+    <mat-spinner *ngIf="isLoading" style="margin-left: 45%; margin-top: 1rem;"></mat-spinner>
+</mat-card>

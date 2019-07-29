@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var Customer = require('../models/customer');
-var Thirdparty = require('../models/thirdparty');
 
 router.get('/customers', (req, res, next) => {
 
-  Customer.find().populate('thirdParty').then(
+  Customer
+    .find()
+    .populate('thirdParty')
+    .then(
     documents => {
       res.status(200).json({
         message: 'Customer successfully fetched',

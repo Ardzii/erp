@@ -21,12 +21,6 @@ export class CustomerDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    // this.route.paramMap.pipe(
-    //   switchMap((params: ParamMap) => {
-    //     this.isLoading = false;
-    //     return this.customerService.getCustomer(params.get('id'));
-    //   })
-    // );
     this.route.paramMap.subscribe(
       (params: ParamMap) => {
         this.customerService.getCustomer(params.get('id')).subscribe(

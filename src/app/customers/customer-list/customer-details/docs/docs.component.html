@@ -21,7 +21,7 @@
                     <td mat-cell *matCellDef="let element">
 
                       <!-- TODO: PROBABLY NEED TO FIX THE LINK... -->
-                      <a [attr.href]="element[col]"
+                      <a matTooltip="View the document in a new window" [attr.href]="element[col]"
                       target="_blank"
                       rel="noopener noreferrer">
                         View Document

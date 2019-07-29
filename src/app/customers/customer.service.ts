@@ -19,4 +19,8 @@ export class CustomerService {
   getCustomer(id: string) {
     return this.http.get('http://localhost:3000/api/customer/' + id) as Observable<any>;
   }
+
+  getThirdParties() {
+    return this.http.get('http://localhost:3000/api/thirdParties');
+  }
 }

@@ -34,8 +34,6 @@ export class DocsComponent implements OnInit {
         }
       }
     );
-    console.log(this.docSource);
-    console.log(this.docColumns);
   }
 
 }

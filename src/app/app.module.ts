@@ -14,7 +14,9 @@ import {
   MatProgressBarModule,
   MatInputModule,
   MatTabsModule,
-  MatTableModule
+  MatTableModule,
+  MatTooltipModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -30,6 +32,7 @@ import { BasicComponent } from './customers/customer-list/customer-details/basic
 import { DocsComponent } from './customers/customer-list/customer-details/docs/docs.component';
 import { ContactsComponent } from './customers/customer-list/customer-details/contacts/contacts.component';
 import { CustomerCommentsComponent } from './customers/customer-list/customer-details/customer-comments/customer-comments.component';
+import { ContractsComponent } from './customers/customer-list/customer-details/contracts/contracts.component';
 
 
 // APP ROUTING MODULE TO BE CREATED ************************************************* BEG
@@ -55,6 +58,7 @@ const appRoutes = [
     DocsComponent,
     ContactsComponent,
     CustomerCommentsComponent,
+    ContractsComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,9 @@ const appRoutes = [
     MatProgressBarModule,
     MatInputModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
