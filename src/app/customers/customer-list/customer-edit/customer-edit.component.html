@@ -1,3 +1,32 @@
-<mat-toolbar>
-  <button mat-flat-button color="accent" style="margin-right: 0.5rem;" [routerLink]="['/customers']">BACK</button>
-</mat-toolbar>
+<mat-progress-bar mode="query" *ngIf="isLoading"></mat-progress-bar>
+<div *ngIf="!isLoading">
+  <mat-toolbar>
+    <button mat-flat-button color="accent" style="margin-right: 0.5rem;" [routerLink]="['/customers']">BACK</button>
+  </mat-toolbar>
+  <mat-card style="margin: 1rem;">
+      <mat-card-subtitle>
+        <button mat-flat-button color="accent" style="margin-right: 0.5rem;" disabled>
+          {{ customer$.thirdParty[0].name | uppercase }}
+        </button>
+        <span>
+          {{ customer$.thirdParty[0].vat | uppercase }}
+        </span>
+      </mat-card-subtitle>
+      <mat-card-content>
+        <mat-tab-group>
+          <mat-tab label="Basic Info">
+            <app-basic-edit [customer$]="customer$"></app-basic-edit>
+            <app-customer-comments-edit *ngIf="customer$.commentsArr.length > 0" [customer$]="customer$"></app-customer-comments-edit>
+          </mat-tab>
+          <mat-tab label="Documents">
+            <app-docs-edit [customer$]="customer$"></app-docs-edit>
+          </mat-tab>
+          <mat-tab label="Contacts">
+            <app-contacts-edit [customer$]="customer$"></app-contacts-edit>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+</div>
+
+
