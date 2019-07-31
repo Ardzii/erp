@@ -1,12 +1,17 @@
 <mat-progress-bar mode="query" *ngIf="isLoading"></mat-progress-bar>
 
-<mat-card style="margin: 1rem;" *ngIf="customers">
-  <mat-nav-list>
-    <mat-list-item
-      *ngFor="let customer of customers"
-      [routerLink]="['/customers/customer-detail/', customer._id ]">
-      <mat-icon [ngClass]="{activeAccount: customer.active}" style="margin-right: 0.5rem;">account_box</mat-icon>
-      <span cdk-visually-hidden>{{ customer.thirdParty[0].name | uppercase }}</span>
-    </mat-list-item>
-  </mat-nav-list>
-</mat-card>
+<div *ngIf="!isLoading">
+  <mat-toolbar>
+    <button mat-flat-button color="accent" style="margin-right: 0.5rem;" [routerLink]="['/customers/new-customer']">CREATE CUSTOMER</button>
+  </mat-toolbar>
+  <mat-card style="margin: 1rem;" *ngIf="customers">
+    <mat-nav-list>
+      <mat-list-item
+        *ngFor="let customer of customers"
+        [routerLink]="['/customers/customer-detail/', customer._id ]">
+        <mat-icon [ngClass]="{activeAccount: customer.active}" style="margin-right: 0.5rem;">account_box</mat-icon>
+        <span cdk-visually-hidden>{{ customer.thirdParty[0].name | uppercase }}</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-card>
+</div>

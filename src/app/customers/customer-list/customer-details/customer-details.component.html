@@ -5,12 +5,23 @@
     <button mat-flat-button color="primary" [routerLink]="['/customers/customer-edit', customer$._id]">EDIT</button>
   </mat-toolbar>
   <mat-card style="margin: 1rem;">
-    <mat-card-title>
-      {{ customer$.thirdParty[0].name | uppercase }}
-    </mat-card-title>
     <mat-card-subtitle>
-      {{ customer$.thirdParty[0].vat | uppercase }}
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item>QUOTES</button>
+        <button mat-menu-item>CONTRACTS</button>
+      </mat-menu>
+
+      <button mat-flat-button [matMenuTriggerFor]="appMenu" color="accent" style="margin-right: 0.5rem;">
+        {{ customer$.thirdParty[0].name | uppercase }}
+      </button>
+
+        <span>
+          {{ customer$.thirdParty[0].vat | uppercase }}
+        </span>
     </mat-card-subtitle>
+    <!-- <mat-card-subtitle>
+      {{ customer$.thirdParty[0].vat | uppercase }}
+    </mat-card-subtitle> -->
     <mat-card-content>
       <mat-tab-group>
         <mat-tab label="Basic Info">

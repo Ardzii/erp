@@ -36,8 +36,9 @@ import { CustomerCommentsComponent } from './customers/customer-list/customer-de
 // APP ROUTING MODULE TO BE CREATED ************************************************* BEG
 const appRoutes = [
   { path: 'customers', component: CustomerListComponent },
-  { path: 'customer', component: CustomerDetailsComponent },
+  // { path: 'customer', component: CustomerDetailsComponent },
   { path: 'customers/customer-detail/:id', component: CustomerDetailsComponent },
+  { path: 'customers/new-customer', component: CustomerEditComponent },
   { path: 'customers/customer-edit/:id', component: CustomerEditComponent },
   { path: 'home', component: DashboardComponent },
 ];
@@ -78,6 +79,7 @@ const appRoutes = [
     MatTableModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
