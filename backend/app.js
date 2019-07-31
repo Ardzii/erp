@@ -2,7 +2,7 @@ var express  = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var customer = require('./routes/customer');
-var thirdParties = require('./routes/thirdParties');
+
 var app = express();
 
 var uri = "mongodb+srv://admin:yM9yiySH2k4n1N91@cluster0-43bjp.mongodb.net/centralDev?retryWrites=true&w=majority";
@@ -24,6 +24,5 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/', customer);
-app.use('/api/', thirdParties);
 
 module.exports = app;

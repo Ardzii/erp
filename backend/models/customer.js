@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Thirdparty = require('./thirdparty');
 
 var customerSchema = new Schema({
   _id: {type: Schema.Types.ObjectId},

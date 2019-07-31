@@ -6,7 +6,10 @@ router.get('/customers', (req, res, next) => {
 
   Customer
     .find()
-    .populate('thirdParty')
+    .populate({
+      path: 'thirdParty',
+      populate: { path: 'contacts', model: 'Contact' }
+    })
     .then(
     documents => {
       res.status(200).json({
@@ -18,7 +21,10 @@ router.get('/customers', (req, res, next) => {
 });
 
 router.get('/customer/:id', (req, res, next) => {
-  Customer.findById(req.params.id).populate('thirdParty').then(
+  Customer.findById(req.params.id).populate({
+    path: 'thirdParty',
+    populate: { path: 'contacts', model: 'Contact' }
+  }).then(
     document => {
       if (document) {
         res.status(200).json({

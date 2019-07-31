@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Contact = require('./contact');
 
 var thirdPartySchema = new Schema({
   _id: {type: Schema.Types.ObjectId},

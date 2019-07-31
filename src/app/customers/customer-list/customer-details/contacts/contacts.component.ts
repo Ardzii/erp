@@ -8,7 +8,7 @@ import { CustomerService } from 'src/app/customers/customer.service';
 })
 export class ContactsComponent implements OnInit {
   @Input() customer$: any;
-  isLoading = false;
+
   salesRepData = [];
   salesRepColumns: string[] = [
     'user_id',
@@ -16,24 +16,25 @@ export class ContactsComponent implements OnInit {
     'active',
     'actions'
   ];
-  contacts: any;
 
-  constructor(
-    private customerService: CustomerService
-    ) { }
+  contactsData: any;
+  tpContacts: string[] = [
+    'firstName',
+    'lastName',
+    'email',
+    'phone',
+    'actions'
+  ];
+
+  constructor() { }
 
   ngOnInit() {
     // TODO: Change to real name
     this.salesRepData = this.customer$.salesRep;
 
     // TODO: Add thirdparty population to get the contacts.
-    this.isLoading = true;
-    this.customerService.getThirdParties().subscribe(
-      (res: any) => {
-        this.contacts = res.thirdParties;
-        console.log(this.contacts);
-      }
-    );
+    this.contactsData = this.customer$.thirdParty[0].contacts;
+
   }
 
 }
