@@ -1,7 +1,5 @@
-import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
 import { CustomerService } from '../../customer.service';
 
 @Component({

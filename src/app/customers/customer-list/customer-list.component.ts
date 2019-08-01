@@ -8,7 +8,7 @@ import { CustomerService } from '../customer.service';
 })
 
 export class CustomerListComponent implements OnInit {
-  customers: any;
+  customers$: any;
   isLoading = false;
 
   constructor(private cs: CustomerService) { }
@@ -17,7 +17,7 @@ export class CustomerListComponent implements OnInit {
     this.isLoading = true;
     this.cs.getCustomers().subscribe(
       (res: any) => {
-        this.customers = res.customers;
+        this.customers$ = res.customers;
         this.isLoading = false;
       }
     );

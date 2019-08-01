@@ -12,6 +12,8 @@ export class CustomerEditComponent implements OnInit {
   customerId: string;
   isLoading = false;
 
+  // REPLACE CUSTOMER$ IN THE SUBSECTIONS BY THE FORM;
+
   constructor(
     private route: ActivatedRoute,
     private customerService: CustomerService

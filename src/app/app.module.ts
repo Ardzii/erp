@@ -33,9 +33,12 @@ import { DocsComponent } from './customers/customer-list/customer-details/docs/d
 import { ContactsComponent } from './customers/customer-list/customer-details/contacts/contacts.component';
 import { CustomerCommentsComponent } from './customers/customer-list/customer-details/customer-comments/customer-comments.component';
 import { BasicEditComponent } from './customers/customer-list/customer-edit/basic-edit/basic-edit.component';
+// tslint:disable-next-line: max-line-length
 import { CustomerCommentsEditComponent } from './customers/customer-list/customer-edit/customer-comments-edit/customer-comments-edit.component';
 import { DocsEditComponent } from './customers/customer-list/customer-edit/docs-edit/docs-edit.component';
 import { ContactsEditComponent } from './customers/customer-list/customer-edit/contacts-edit/contacts-edit.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // APP ROUTING MODULE TO BE CREATED ************************************************* BEG
 const appRoutes = [
@@ -68,6 +71,9 @@ const appRoutes = [
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(
