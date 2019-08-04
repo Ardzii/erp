@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { CustomerEditService } from '../customer-edit.service';
 
 @Component({
   selector: 'app-basic-edit',
@@ -9,28 +10,28 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class BasicEditComponent implements OnInit {
   @Input() customer$: any;
   thirdPartyForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+
+  constructor(
+    private fb: FormBuilder,
+    private cusEditService: CustomerEditService
+    ) { }
 
   ngOnInit() {
-    this.thirdPartyForm = this.fb.group({
-      name: this.fb.control(null, Validators.required),
-      vat: this.fb.control(null, Validators.required),
-      corpoPhone: this.fb.control(null, Validators.required),
-      corpoMail: this.fb.control(null, Validators.required),
-      corpoWeb: this.fb.control(null, Validators.required),
-      activityNumber: this.fb.control(null),
-      addresses: this.fb.array([], Validators.required),
-    });
     // NEED TO WORK ON THE ADDRESSES
     if (this.customer$) {
-      const formStructure = Object.keys(this.thirdPartyForm.controls);
-      Object.keys(this.customer$.thirdParty[0]).map(
-        el => {
-          if (formStructure.indexOf(el) !== -1) {
-            this.thirdPartyForm.get(el).patchValue(this.customer$.thirdParty[0][el]);
-          }
-        }
+      this.thirdPartyForm = this.cusEditService.getFilledThirdPartyForm(this.customer$.thirdParty[0]);
+      const addresses: any[] = this.customer$.thirdParty[0].addresses;
+      const addressesFormArr: FormArray = new FormArray([]);
+      addresses.forEach(
+        address => {
+          const currAddressForm: FormGroup = this.cusEditService.getAddressForm(address);
+          addressesFormArr.push(currAddressForm);
+        });
+      this.thirdPartyForm.setControl('addresses', new FormArray([
+        addressesFormArr
+        ])
       );
+      console.log(this.thirdPartyForm.value);
     }
   }
 

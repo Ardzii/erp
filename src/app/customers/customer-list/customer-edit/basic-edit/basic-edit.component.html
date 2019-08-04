@@ -26,7 +26,7 @@
   </mat-form-field>
   <!-- ADDRESSES SECTION -->
   <mat-accordion formArrayName="addresses">
-    <mat-expansion-panel *ngFor="let address of thirdPartyForm.get('addresses')">
+    <mat-expansion-panel *ngFor="let address of thirdPartyForm.get('addresses').value[0]">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <mat-icon matSuffix *ngIf="address.main">home</mat-icon>
@@ -36,27 +36,27 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Street</mat-label>
-        <input matInput placeholder="Street" value="{{ address.street }}" disabled>
+        <input matInput placeholder="Street" value="{{ address.street }}">
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Complement 1</mat-label>
-        <input matInput placeholder="Complement 1" value="{{ address.streetComp ? address.streetComp : 'N/A' }}" disabled>
+        <input matInput placeholder="Complement 1" value="{{ address.streetComp ? address.streetComp : 'N/A' }}">
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Complement 2</mat-label>
-        <input matInput placeholder="Complement 2" value="{{ address.streetComp2 ? address.streetComp : 'N/A' }}" disabled>
+        <input matInput placeholder="Complement 2" value="{{ address.streetComp2 ? address.streetComp : 'N/A' }}">
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>City</mat-label>
-        <input matInput placeholder="City" value="{{ address.city }}" disabled>
+        <input matInput placeholder="City" value="{{ address.city }}">
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>State</mat-label>
-        <input matInput placeholder="State" value="{{ address.state }}" disabled>
+        <input matInput placeholder="State" value="{{ address.state }}">
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Country</mat-label>
-        <input matInput placeholder="Country" value="{{ address.country }}" disabled>
+        <input matInput placeholder="Country" value="{{ address.country }}">
       </mat-form-field>
 
     </mat-expansion-panel>
