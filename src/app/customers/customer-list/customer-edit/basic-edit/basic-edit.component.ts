@@ -27,12 +27,12 @@ export class BasicEditComponent implements OnInit {
           const currAddressForm: FormGroup = this.cusEditService.getAddressForm(address);
           addressesFormArr.push(currAddressForm);
         });
-      this.thirdPartyForm.setControl('addresses', new FormArray([
+      this.thirdPartyForm.setControl(
+        'addresses',
         addressesFormArr
-        ])
       );
-      console.log(this.thirdPartyForm.value);
     }
+    console.log(this.thirdPartyForm.get('addresses'));
   }
 
   onSubmit() {
